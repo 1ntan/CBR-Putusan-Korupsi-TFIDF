@@ -1,1 +1,6 @@
-
+pandas
+pdfplumber
+scikit-learn
+matplotlib
+joblib
+openpyxl
