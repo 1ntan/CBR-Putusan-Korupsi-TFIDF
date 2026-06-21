@@ -27,8 +27,35 @@ Sistem mengikuti siklus Case-Based Reasoning (CBR), yaitu:
 ## Struktur Repository
 
 ```text
-...
-```
+CBR-Putusan-Korupsi/
+│
+├── README.md
+├── requirements.txt
+│
+├── data/
+│   ├── raw/
+│   │   ├── case_001.txt
+│   │   ├── case_002.txt
+│   │   ├── case_003.txt
+│   │   └── ...
+│   │
+│   ├── processed/
+│   │   └── cases.csv
+│   │
+│   ├── eval/
+│   │   ├── queries.json
+│   │   ├── retrieval_metrics.csv
+│   │   └── prediction_metrics.csv
+│   │
+│   └── results/
+│       └── predictions.csv
+│
+└── notebooks/
+    ├── 01_case_base.ipynb
+    ├── 02_case_representation.ipynb
+    ├── 03_case_retrieval.ipynb
+    ├── 04_predict.ipynb
+    └── 05_evaluation.ipynb
 
 ## Instalasi
 
