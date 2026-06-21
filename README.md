@@ -50,16 +50,27 @@ CBR-Putusan-Korupsi/
 │   └── results/
 │       └── predictions.csv
 │
+├── logs/
+│   └── cleaning.log
+│
 └── notebooks/
     ├── 01_case_base.ipynb
     ├── 02_case_representation.ipynb
     ├── 03_case_retrieval.ipynb
     ├── 04_predict.ipynb
     └── 05_evaluation.ipynb
+```
 
 ## Instalasi
 
-Install seluruh dependensi:
+1. Clone repository:
+
+```bash
+git clone <url_repository>
+cd CBR-Putusan-Korupsi
+```
+
+2. Install dependensi:
 
 ```bash
 pip install -r requirements.txt
@@ -117,7 +128,11 @@ Metrik evaluasi:
 - Recall
 - F1-Score
 
----
+Output:
+```text
+data/eval/retrieval_metrics.csv
+data/eval/prediction_metrics.csv
+```
 
 ## Cara Menjalankan
 
