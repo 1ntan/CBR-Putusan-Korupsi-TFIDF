@@ -70,7 +70,7 @@ CBR-Putusan-Korupsi/
     ├── 01_case_base.ipynb
     ├── 02_case_representation.ipynb
     ├── 03_case_retrieval.ipynb
-    ├── 04_predict.ipynb
+    ├── 04_reuse_prediction.ipynb
     └── 05_evaluation.ipynb
 ```
 
@@ -180,7 +180,7 @@ Notebook harus dijalankan secara berurutan karena output dari setiap tahap digun
 ↓
 03_case_retrieval.ipynb
 ↓
-04_predict.ipynb
+04_reuse_prediction.ipynb
 ↓
 05_evaluation.ipynb
 ```
