@@ -173,7 +173,7 @@ Output:
 
 ```text
 data/eval/retrieval_metrics.csv
-data/eval/prediction_metrics.csv
+data/eval/error_analysis.csv
 ```
 
 ## Cara Menjalankan
