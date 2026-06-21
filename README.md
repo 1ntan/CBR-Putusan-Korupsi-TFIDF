@@ -140,7 +140,7 @@ Output:
 
 File hasil:
 ```text
-- data/eval/queries.json
+data/eval/queries.json
 ```
 
 ### 4. Case Solution Reuse
@@ -160,7 +160,7 @@ data/results/predictions.csv
 
 ### 5. Evaluasi Model
 
-Tahap evaluasi dilakukan untuk mengukur performa sistem dalam menemukan kasus yang relevan dan menghasilkan prediksi solusi yang sesuai.
+Kinerja sistem dievaluasi menggunakan metrik Accuracy, Precision, Recall, dan F1-Score. Hasil evaluasi digunakan untuk menganalisis performa retrieval dan prediksi solusi.
 
 Evaluasi dilakukan menggunakan beberapa metrik klasifikasi, yaitu:
 
@@ -168,8 +168,6 @@ Evaluasi dilakukan menggunakan beberapa metrik klasifikasi, yaitu:
 - Precision
 - Recall
 - F1-Score
-
-Hasil evaluasi digunakan untuk menganalisis kualitas proses retrieval dan prediksi solusi. Selain itu, dilakukan analisis terhadap kasus-kasus yang gagal ditemukan atau memiliki tingkat kemiripan yang rendah untuk memperoleh rekomendasi perbaikan sistem.
 
 Output:
 
