@@ -18,10 +18,23 @@ Sistem mengikuti siklus Case-Based Reasoning (CBR), yaitu:
 
 ## Dataset
 
-- Domain Perkara: Tindak Pidana Korupsi (Tipikor)
-- Jumlah Putusan: 40 Putusan
-- Sumber Data: Direktori Putusan Mahkamah Agung Republik Indonesia
+Dataset diperoleh dari Direktori Putusan Mahkamah Agung Republik Indonesia dengan domain perkara Tindak Pidana Korupsi (Tipikor).
 
+Karakteristik dataset:
+
+- Jumlah dokumen: 40 putusan
+- Format awal: PDF
+- Format setelah preprocessing: TXT
+- Sumber: https://putusan3.mahkamahagung.go.id/
+
+Setiap dokumen berisi informasi seperti:
+- Nomor perkara
+- Identitas terdakwa
+- Pasal yang digunakan
+- Uraian fakta persidangan
+- Pertimbangan hukum
+- Amar putusan
+  
 ---
 
 ## Struktur Repository
@@ -63,18 +76,26 @@ CBR-Putusan-Korupsi/
 
 ## Instalasi
 
-1. Clone repository:
+1. Clone repository
 
 ```bash
 git clone <url_repository>
 cd CBR-Putusan-Korupsi
 ```
 
-2. Install dependensi:
+2. Install seluruh dependensi
 
 ```bash
 pip install -r requirements.txt
 ```
+
+3. Jalankan Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+4. Buka folder notebooks dan jalankan notebook sesuai urutan pipeline.
 
 ## Tahapan Pengerjaan
 
@@ -109,26 +130,54 @@ data/processed/cases.csv
 
 ### 3. Case Retrieval
 
-Menggunakan:
-- TF-IDF Vectorizer
-- Cosine Similarity
+Pada tahap ini setiap dokumen putusan direpresentasikan menjadi vektor menggunakan metode TF-IDF (Term Frequency-Inverse Document Frequency).
 
-Untuk menemukan putusan yang paling mirip dengan query kasus baru.
+Kemiripan antara kasus baru dan seluruh kasus dalam basis kasus dihitung menggunakan Cosine Similarity. Sistem kemudian mengembalikan beberapa putusan dengan nilai kemiripan tertinggi sebagai referensi untuk proses prediksi solusi.
 
+Input:
+- Ringkasan kasus baru atau teks putusan
+
+Output:
+- Top-k putusan yang paling mirip
+- Nilai similarity setiap putusan
+- Daftar case_id hasil retrieval
+
+File hasil:
+```text
+- data/eval/queries.json
+```
 ### 4. Case Solution Reuse
 
-Mengambil amar putusan dari kasus-kasus yang paling mirip sebagai rekomendasi solusi.
+Tahap ini memanfaatkan hasil retrieval untuk menghasilkan rekomendasi solusi bagi kasus baru.
+
+Sistem mengambil beberapa putusan yang memiliki tingkat kemiripan tertinggi (top-k cases) dari tahap retrieval. Dari setiap putusan tersebut diekstraksi bagian amar putusan atau informasi hasil putusan yang kemudian digunakan sebagai referensi solusi.
+
+Proses prediksi dilakukan dengan memanfaatkan informasi dari kasus-kasus yang paling mirip, sehingga solusi yang dihasilkan didasarkan pada pengalaman kasus sebelumnya sesuai prinsip Case-Based Reasoning (CBR).
+
+Input:
+- Daftar top-k kasus hasil retrieval
+
+Output:
+- Prediksi solusi atau rekomendasi amar putusan untuk kasus baru
+
+File hasil:
+- data/results/predictions.csv
 
 ### 5. Evaluasi Model
 
-Metrik evaluasi:
+Tahap evaluasi dilakukan untuk mengukur performa sistem dalam menemukan kasus yang relevan dan menghasilkan prediksi solusi yang sesuai.
+
+Evaluasi dilakukan menggunakan beberapa metrik klasifikasi, yaitu:
 
 - Accuracy
 - Precision
 - Recall
 - F1-Score
 
+Hasil evaluasi digunakan untuk menganalisis kualitas proses retrieval dan prediksi solusi. Selain itu, dilakukan analisis terhadap kasus-kasus yang gagal ditemukan atau memiliki tingkat kemiripan yang rendah untuk memperoleh rekomendasi perbaikan sistem.
+
 Output:
+
 ```text
 data/eval/retrieval_metrics.csv
 data/eval/prediction_metrics.csv
@@ -136,7 +185,7 @@ data/eval/prediction_metrics.csv
 
 ## Cara Menjalankan
 
-Jalankan notebook secara berurutan:
+Notebook harus dijalankan secara berurutan karena output dari setiap tahap digunakan sebagai input pada tahap berikutnya.
 
 ```text
 01_case_base.ipynb
@@ -149,3 +198,12 @@ Jalankan notebook secara berurutan:
 ↓
 05_evaluation.ipynb
 ```
+## Hasil yang Diharapkan
+
+Sistem menghasilkan:
+
+1. Basis kasus yang telah dibersihkan dan terstruktur.
+2. Representasi kasus dalam format CSV.
+3. Daftar putusan yang paling mirip terhadap kasus baru.
+4. Prediksi solusi berdasarkan kasus-kasus yang memiliki kemiripan tertinggi.
+5. Hasil evaluasi model berupa Accuracy, Precision, Recall, dan F1-Score.
