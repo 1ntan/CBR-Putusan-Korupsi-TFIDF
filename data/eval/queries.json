@@ -1,0 +1,27 @@
+[
+    {
+        "query_id": 1,
+        "query": "korupsi dana desa",
+        "ground_truth_case_id": 3
+    },
+    {
+        "query_id": 2,
+        "query": "penyalahgunaan anggaran",
+        "ground_truth_case_id": 26
+    },
+    {
+        "query_id": 3,
+        "query": "kredit fiktif bank",
+        "ground_truth_case_id": 7
+    },
+    {
+        "query_id": 4,
+        "query": "penggelapan dana",
+        "ground_truth_case_id": 19
+    },
+    {
+        "query_id": 5,
+        "query": "kerugian negara",
+        "ground_truth_case_id": 21
+    }
+]

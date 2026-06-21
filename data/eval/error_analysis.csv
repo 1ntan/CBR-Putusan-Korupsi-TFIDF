@@ -1,0 +1,3 @@
+﻿query_id,query,ground_truth_case_id,retrieved_case_ids,correct
+2,penyalahgunaan anggaran,26,"[40, 39, 38, 37, 36]",False
+4,penggelapan dana,19,"[40, 39, 38, 37, 36]",False
