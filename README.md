@@ -145,7 +145,7 @@ data/eval/queries.json
 
 ### 4. Case Solution Reuse
 
-Tahap ini memanfaatkan hasil retrieval untuk menghasilkan rekomendasi solusi bagi kasus baru. Amar putusan dari kasus-kasus yang memiliki kemiripan tertinggi digunakan sebagai referensi dalam proses prediksi solusi.
+Hasil retrieval digunakan untuk menghasilkan rekomendasi solusi bagi kasus baru. Amar putusan dari kasus-kasus yang memiliki kemiripan tertinggi digunakan sebagai referensi dalam proses prediksi solusi.
 
 Input:
 - Daftar top-k kasus hasil retrieval
@@ -161,13 +161,6 @@ data/results/predictions.csv
 ### 5. Evaluasi Model
 
 Kinerja sistem dievaluasi menggunakan metrik Accuracy, Precision, Recall, dan F1-Score. Hasil evaluasi digunakan untuk menganalisis performa retrieval dan prediksi solusi.
-
-Evaluasi dilakukan menggunakan beberapa metrik klasifikasi, yaitu:
-
-- Accuracy
-- Precision
-- Recall
-- F1-Score
 
 Output:
 
