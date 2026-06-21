@@ -63,7 +63,7 @@ CBR-Putusan-Korupsi/
 │   └── results/
 │       └── predictions.csv
 │
-├── logs/
+├── log/
 │   └── cleaning.log
 │
 └── notebooks/
