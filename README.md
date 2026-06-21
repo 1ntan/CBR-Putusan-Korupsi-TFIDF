@@ -107,7 +107,6 @@ Melakukan:
 - Normalisasi dokumen
 
 Output:
-
 ```text
 data/raw/
 ```
@@ -123,16 +122,13 @@ Ekstraksi informasi penting:
 - Teks putusan
 
 Output:
-
 ```text
 data/processed/cases.csv
 ```
 
 ### 3. Case Retrieval
 
-Pada tahap ini setiap dokumen putusan direpresentasikan menjadi vektor menggunakan metode TF-IDF (Term Frequency-Inverse Document Frequency).
-
-Kemiripan antara kasus baru dan seluruh kasus dalam basis kasus dihitung menggunakan Cosine Similarity. Sistem kemudian mengembalikan beberapa putusan dengan nilai kemiripan tertinggi sebagai referensi untuk proses prediksi solusi.
+Dokumen putusan direpresentasikan menggunakan TF-IDF dan tingkat kemiripan antar dokumen dihitung menggunakan Cosine Similarity. Sistem kemudian mengembalikan beberapa putusan dengan nilai kemiripan tertinggi sebagai referensi kasus.
 
 Input:
 - Ringkasan kasus baru atau teks putusan
@@ -146,13 +142,10 @@ File hasil:
 ```text
 - data/eval/queries.json
 ```
+
 ### 4. Case Solution Reuse
 
-Tahap ini memanfaatkan hasil retrieval untuk menghasilkan rekomendasi solusi bagi kasus baru.
-
-Sistem mengambil beberapa putusan yang memiliki tingkat kemiripan tertinggi (top-k cases) dari tahap retrieval. Dari setiap putusan tersebut diekstraksi bagian amar putusan atau informasi hasil putusan yang kemudian digunakan sebagai referensi solusi.
-
-Proses prediksi dilakukan dengan memanfaatkan informasi dari kasus-kasus yang paling mirip, sehingga solusi yang dihasilkan didasarkan pada pengalaman kasus sebelumnya sesuai prinsip Case-Based Reasoning (CBR).
+Tahap ini memanfaatkan hasil retrieval untuk menghasilkan rekomendasi solusi bagi kasus baru. Amar putusan dari kasus-kasus yang memiliki kemiripan tertinggi digunakan sebagai referensi dalam proses prediksi solusi.
 
 Input:
 - Daftar top-k kasus hasil retrieval
@@ -161,7 +154,9 @@ Output:
 - Prediksi solusi atau rekomendasi amar putusan untuk kasus baru
 
 File hasil:
-- data/results/predictions.csv
+```text
+data/results/predictions.csv
+```
 
 ### 5. Evaluasi Model
 
