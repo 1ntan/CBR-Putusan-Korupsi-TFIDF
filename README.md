@@ -193,3 +193,9 @@ Sistem menghasilkan:
 3. Daftar putusan yang paling mirip terhadap kasus baru.
 4. Prediksi solusi berdasarkan kasus-kasus yang memiliki kemiripan tertinggi.
 5. Hasil evaluasi model berupa Accuracy, Precision, Recall, dan F1-Score.
+
+## Visualisasi Evaluasi
+
+Grafik berikut menunjukkan performa model berdasarkan metrik Accuracy, Precision, Recall, dan F1-Score.
+
+![Performance Evaluation](data/eval/performance_chart.png)
