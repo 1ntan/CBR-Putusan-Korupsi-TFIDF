@@ -53,12 +53,12 @@ CBR-Putusan-Korupsi/
 │   │   └── ...
 │   │
 │   ├── processed/
-│   │   └── cases.csv
+│   │   └── cases.zip
 │   │
 │   ├── eval/
 │   │   ├── queries.json
 │   │   ├── retrieval_metrics.csv
-│   │   └── prediction_metrics.csv
+│   │   └── error_analysis.csv
 │   │
 │   └── results/
 │       └── predictions.csv
